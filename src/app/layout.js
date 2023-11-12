@@ -1,16 +1,13 @@
-import Link from "next/link";
 import "./globals.css";
+import Navbar from "@/components/Navbar/Navbar";
 
 const RootLayout = ({ children }) => {
     return (
         <html lang="en">
             <body>
                 <main>
-                    <nav>
-                        <Link href="/">Home</Link>
-                        <Link href="/notes">Notes</Link>
-                    </nav>
-                    {children}
+                    <Navbar />
+                    <div className="">{children}</div>
                 </main>
             </body>
         </html>
