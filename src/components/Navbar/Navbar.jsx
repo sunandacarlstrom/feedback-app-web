@@ -7,7 +7,7 @@ import NavbarSmallScreens from "./NavbarSmallScreens";
 
 const Navbar = () => {
     return (
-        <nav className="fixed w-full h-24 shadow-xl bg-white">
+        <nav className="w-full h-24 shadow-xl bg-white">
             <div className="flex justify-between items-center gap-1 h-full w-full px-4 2xl:px-16">
                 <Link href="/">
                     <Image src={Logo} alt="Logo" width="205" height="75" className="cursor-pointer" priority />

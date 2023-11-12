@@ -5,10 +5,10 @@ const RootLayout = ({ children }) => {
     return (
         <html lang="en">
             <body>
-                <main>
+                <header>
                     <Navbar />
-                    <div className="">{children}</div>
-                </main>
+                </header>
+                <main className="py-10 px-8">{children}</main>
             </body>
         </html>
     );
