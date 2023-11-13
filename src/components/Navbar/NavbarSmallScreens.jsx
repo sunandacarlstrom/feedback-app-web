@@ -13,8 +13,8 @@ const NavbarSmallScreens = () => {
 
     return (
         <>
-            <div onClick={handleMenu} className="md:hidden fixed right-8 top-10 cursor-pointer z-10">
-                {menuOpen ? <Icon iconName="X-Digital-black" size={22} /> : <AiOutlineMenu size={25} /> }
+            <div onClick={handleMenu} className="md:hidden fixed right-8 top-6 cursor-pointer z-10">
+                {menuOpen ? <Icon iconName="X-Digital-black" size={22} /> : <AiOutlineMenu size={25} />}
             </div>
             <div className={menuOpen ? "fixed right-0 top-0 h-full w-[45%] bg-[#5c606243] z-0 ease-in duration-500" : "fixed right-[-100%] top-0 h-full w-[45%] z-0 ease-in duration-500"}>
                 <ul className="flex flex-col w-full items-end justify-start px-8 h-full py-24 gap-2">
