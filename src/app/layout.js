@@ -5,7 +5,7 @@ const RootLayout = ({ children }) => {
     return (
         <html lang="en">
             <body className="relative w-full h-screen">
-                <header>
+            <header>
                     <Navbar />
                 </header>
                 <main className="py-10 px-8">

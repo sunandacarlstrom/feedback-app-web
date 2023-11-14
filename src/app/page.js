@@ -1,6 +1,7 @@
 import React from "react";
 import VideoPlayer from "@/components/VideoPlayer/VideoPlayer";
 import ButtonStart from "@/components/Button/ButtonStart";
+import Navbar from "@/components/Navbar/Navbar";
 
 const Home = () => {
     return (
