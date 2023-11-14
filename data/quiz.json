@@ -1,0 +1,45 @@
+{
+    "event": [
+        {
+            "id": 231,
+            "name": "Knowit-Mässan",
+            "quiz": [
+                {
+                    "id": 1,
+                    "name": "Feedback",
+                    "questions": [
+                        {
+                            "id": 1,
+                            "question": "Vad tycker du om detta eventet?",
+                            "answers": [
+                                {
+                                    "id": 1,
+                                    "answer": "Jättebra :D",
+                                    "user_id": 231
+                                }
+                            ]
+                        },
+                        {
+                            "id": 2,
+                            "question": "Vad tycker du om det här eventet?"
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "Teknik-mässan",
+                    "questions": [
+                        {
+                            "id": 1,
+                            "question": "Vad tycker du om teknik?"
+                        },
+                        {
+                            "id": 2,
+                            "question": "Vad tycker du om Mässan?"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

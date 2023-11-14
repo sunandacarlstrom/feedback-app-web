@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-
 const Icon = ({size}) => {
     return (
         <>
@@ -13,7 +12,5 @@ const Icon = ({size}) => {
         </>
     );
 };
-
-// X-Digital-lollipop.svg
 
 export default Icon;
