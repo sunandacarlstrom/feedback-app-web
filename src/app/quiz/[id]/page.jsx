@@ -8,8 +8,8 @@ const QuestionPage = ({ params }) => {
         const fetchData = async () => {
             try {
                 const response = await fetch("http://localhost:5030/companies");
-                const data = await response.json();
-                setQuestion(data[0].events[0].quiz[0].questions[params.id]);
+                const companies = await response.json();
+                setQuestion(companies[0].events[0].quiz[0].questions[params.id]);
             } catch (error) {
                 console.error("Error:", error);
             }

@@ -1,40 +1,17 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import EventList from "@/components/EventList/EventList";
-import Background from "@/components/Background/Background";
+import React from "react";
+import VideoPlayer from "@/components/VideoPlayer/VideoPlayer";
+import ButtonStart from "@/components/Button/ButtonStart";
 
-const QuizPage = () => {
-    const [company, setCompany] = useState(null);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch("http://localhost:5030/companies");
-                const data = await response.json();
-                setCompany(data);
-                setLoading(false);
-            } catch (error) {
-                console.error("Error:", error);
-            }
-        };
-        fetchData();
-    }, []);
-
+const Home = () => {
     return (
         <>
-            <Background />
-            <div className="max-w-2xl w-full p-4">
-                <h1>Quiz Page</h1>
-                <div className="flex justify-center items-center">
-                    <div className="bg-melon p-4 mt-2 border rounded-xl max-w-fit">
-                        {loading && <span className="loading loading-spinner loading-l text-pop"></span>}
-                        {company && <EventList events={company[0].events} />}
-                    </div>
-                </div>
+            <div className="absolute left-[50%] top-[50%] flex justify-center items-center flex-col gap-4 translate-x-[-50%] translate-y-[-50%]">
+                <h1 className="text-digital-white text-center">Please, give us some feedback!</h1>
+                <ButtonStart text={"Start Quiz"} link="/quiz/0" />
             </div>
+            <VideoPlayer />
         </>
     );
 };
 
-export default QuizPage;
+export default Home;
