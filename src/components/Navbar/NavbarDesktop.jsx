@@ -5,13 +5,13 @@ const NavbarDesktop = () => {
     return (
         <ul className="hidden md:flex gap-12">
             <Link href="/about">
-                <li className="hover:border-b border-pop text-l">About</li>
+                <li className="border-b border-transparent hover:border-pop text-l transition-all duration-300">About</li>
             </Link>
             <Link href="/contact">
-                <li className="hover:border-b border-pop text-l">Contact</li>
+                <li className="border-b border-transparent hover:border-pop text-l transition-all duration-300">Contact</li>
             </Link>
             <Link href="/admin">
-                <li className="hover:border-b border-pop text-l">Admin</li>
+                <li className="border-b border-transparent hover:border-pop text-l transition-all duration-300">Admin</li>
             </Link>
         </ul>
     );
