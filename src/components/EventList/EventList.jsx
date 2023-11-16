@@ -1,17 +1,44 @@
-const EventList = ({ name, events }) => {
+"use client";
+import { useState, useEffect } from "react";
+
+const EventList = () => {
+    const [companies, setCompanies] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch("http://localhost:5030/companies");
+                const data = await response.json();
+
+                // Logga all data
+                console.log("All Data:", data);
+
+                // Kontrollera om det finns några företag
+                if (data && data.length > 0) {
+                    // Logga första företaget
+                    const firstCompany = data[0];
+                    console.log("First Company:", firstCompany);
+
+                    // Uppdatera state med företaget
+                    setCompanies(firstCompany);
+                }
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        };
+
+        fetchData();
+    }, []);
+    console.log(companies);
+
     return (
-        <div className="blog-list">
-            <h2>{name}</h2>
-            {events.map((event) => (
-                <div className="blog-preview" key={event.id}>
-                    <h2>{event.id}</h2>
-                    <h2>{event.name}</h2>
-                    {event.quiz[0].questions.map((q => (
-                        <h3 key={q.id}>{q.question}</h3>
-                    )))}
-                </div>
+        <ul className="event-list">
+            {companies.events?.map((event) => (
+                <li key={event.id}>
+                    <p>{event.name ?? "Event name is not available"}</p>
+                </li>
             ))}
-        </div>
+        </ul>
     );
 };
 
