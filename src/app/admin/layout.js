@@ -7,7 +7,7 @@ const AdminLayout = ({ children }) => {
             <header>
                 <Navbar />
             </header>
-            <main className="py-10 px-8">{children}</main>
+            <main className="py-10 px-8 bg-forest min-h-full">{children}</main>
         </>
     );
 };
