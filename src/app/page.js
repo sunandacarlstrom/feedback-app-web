@@ -1,14 +1,12 @@
 import React from "react";
-import Background from "@/components/Background/Background";
 import LoginForm from "@/components/Forms/LoginForm/LoginForm";
 
 const Home = () => {
     return (
         <>
-            <div className="absolute left-[50%] top-[50%] flex justify-center items-center flex-col gap-4 translate-x-[-50%] translate-y-[-50%]">
+            <main className="w-screen h-screen bg-forest flex justify-center items-center p-4">
                 <LoginForm />
-            </div>
-            <Background />
+            </main>
         </>
     );
 };
