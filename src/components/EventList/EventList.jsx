@@ -38,7 +38,7 @@ const EventList = ({ company, children }) => {
                     <li key={event.id} className="flex justify-center items-center">
                         <div className="card bg-melon shadow-xl px-5 py-8 gap-1 items-center justify-center border rounded-xl border-pear">
                             <p>{event.name ?? "Event name is not available"}</p>
-                            <ButtonStart text={"Open Quiz"} link="/quiz" />
+                            <ButtonStart text={"Open Quiz"} link={`companyEvent/${event.id}`} />
                         </div>
                     </li>
                 ))}

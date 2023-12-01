@@ -10,7 +10,7 @@ const QuestionPage = ({ params }) => {
         const currentUrl = window.location.href;
         const lastSlashIndex = currentUrl.lastIndexOf("/");
         const lastDigitSubstring = currentUrl.substring(lastSlashIndex + 1);
-        return parseInt(lastDigitSubstring, 10) +1;
+        return parseInt(lastDigitSubstring, 10) + 1;
     };
 
     useEffect(() => {
@@ -31,25 +31,27 @@ const QuestionPage = ({ params }) => {
 
     return (
         <>
-            <div className="card bg-melon shadow-xl p-4 w-fit">
-                <div className="card-body">
-                    <div className="question-count">
-                        <span className="card-title mb-4 text-center">
-                            Question {questionNumber}/{questionCount ?? "0"}
-                        </span>
-                    </div>
-                    <h2 className="card-title mb-4 text-center">{question.question}</h2>
-                    <form id="answer-form">
-                        <div className="flex flex-col gap-4 justify-center items-center">
-                            <input
-                                type="text"
-                                placeholder="Write your answer"
-                                name="answer-input"
-                                id="answer-input"
-                                className="border border-leather p-2 rounded-md w-full focus:outline-none focus:border-pebble"
-                            />
+            <div className="flex items-center justify-center h-screen">
+                <div className="card bg-melon shadow-xl p-4 w-fit">
+                    <div className="card-body">
+                        <div className="question-count">
+                            <span className="card-title mb-4 text-center">
+                                Question {questionNumber}/{questionCount ?? "0"}
+                            </span>
                         </div>
-                    </form>
+                        <h2 className="card-title mb-4 text-center">{question.question}</h2>
+                        <form id="answer-form">
+                            <div className="flex flex-col gap-4 justify-center items-center">
+                                <input
+                                    type="text"
+                                    placeholder="Write your answer"
+                                    name="answer-input"
+                                    id="answer-input"
+                                    className="border border-leather p-2 rounded-md w-full focus:outline-none focus:border-pebble"
+                                />
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </>

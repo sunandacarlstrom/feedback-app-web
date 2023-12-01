@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import CompanyDropdown from "@/components/Dropdown/CompanyDropdown";
 import EventList from "@/components/EventList/EventList";
 
-const AdminPage = () => {
+const CompanyEventPage = () => {
     const [companies, setCompanies] = useState([]);
     const [selectedCompany, setSelectedCompany] = useState();
 
@@ -37,4 +37,4 @@ const AdminPage = () => {
     );
 };
 
-export default AdminPage;
+export default CompanyEventPage;
