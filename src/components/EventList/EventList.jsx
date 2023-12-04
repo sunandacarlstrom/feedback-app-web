@@ -36,9 +36,9 @@ const EventList = ({ company, children }) => {
             <ul className="grid md:grid-cols-3 sm:grid-cols-1 justify-center items-center w-fit gap-4">
                 {events?.map((event) => (
                     <li key={event.id} className="flex justify-center items-center text-center">
-                        <div className="card bg-melon shadow-xl px-10 py-8 gap-1 items-center justify-center border rounded-xl border-pear">
+                        <div className="card bg-melon shadow-xl px-10 py-8 gap-3 items-center justify-center border rounded-xl border-pear">
                             <p>{event.name ?? "Event name is not available"}</p>
-                            <ButtonStart text={"Open Quiz"} link={`companyEvent/${event.id}`} />
+                            <ButtonStart text={"Open Event"} link={`companyEvent/${event.id}`} />
                         </div>
                     </li>
                 ))}
