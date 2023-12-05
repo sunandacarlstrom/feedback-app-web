@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import ButtonStart from "../Button/ButtonStart";
+import ButtonEvent from "../Buttons/ButtonEvent";
 
 const EventList = ({ company, children }) => {
     const [events, setEvents] = useState([]);
@@ -35,10 +35,11 @@ const EventList = ({ company, children }) => {
             <h2>{children}</h2>
             <ul className="grid md:grid-cols-3 sm:grid-cols-1 justify-center items-center w-fit gap-4">
                 {events?.map((event) => (
-                    <li key={event.id} className="flex justify-center items-center">
-                        <div className="card bg-melon shadow-xl px-5 py-8 gap-1 items-center justify-center border rounded-xl border-pear">
+                    <li key={event.id} className="flex justify-center items-center text-center">
+                        <div className="card bg-melon shadow-xl px-10 py-6 gap-2 items-center justify-center border rounded-xl border-pear">
                             <p>{event.name ?? "Event name is not available"}</p>
-                            <ButtonStart text={"Open Quiz"} link={`companyEvent/${event.id}`} />
+                            <ButtonEvent text={"Edit quiz"} link={`companyEvent/${event.id}`} />
+                            <ButtonEvent text={"Start quiz"} link={`/quiz/${event.id}`} />
                         </div>
                     </li>
                 ))}

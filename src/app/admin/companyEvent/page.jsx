@@ -32,7 +32,7 @@ const CompanyEventPage = () => {
             <div className="flex justify-center">
                 <CompanyDropdown onSelect={handleSelectedCompany} companies={companies} selectedCompany={selectedCompany} />
             </div>
-            {selectedCompany ? <EventList company={selectedCompany}>Choose a quiz based on the current event</EventList> : <p>Loading...</p>}
+            {selectedCompany ? <EventList company={selectedCompany} /> : <p>Loading...</p>}
         </>
     );
 };
