@@ -1,4 +1,4 @@
-import ButtonStart from "@/components/Button/ButtonStart";
+import ButtonLogin from "@/components/Buttons/ButtonLogin";
 
 const LoginForm = () => {
     return (
@@ -10,7 +10,7 @@ const LoginForm = () => {
                         <div className="flex flex-col gap-4 justify-center items-center">
                             <input type="text" placeholder="Username" name="username" id="login-username" className="border p-2 rounded-md w-full focus:outline-none focus:border-pear" />
                             <input type="password" placeholder="Password" name="password" id="login-password" className="border p-2 rounded-md w-full focus:outline-none focus:border-pear" />
-                            <ButtonStart text={"Log In"} link="/admin/companyEvent" />
+                            <ButtonLogin text={"Log In"} link="/admin/companyEvent" />
                         </div>
                     </form>
                 </div>
