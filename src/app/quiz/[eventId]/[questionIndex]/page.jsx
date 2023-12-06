@@ -3,24 +3,21 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 const QuestionPage = ({ params }) => {
+    const quizIndex = 0;
+
     const router = useRouter();
 
-    const [quizIndex, setQuizIndex] = useState(0);
-    const [question, setQuestion] = useState([]);
-    const [questionCount, setQuestionCount] = useState(0);
-    const [questionNumber, setQuestionNumber] = useState(null);
-
+    const [question, setQuestion] = useState({});
     const [questionIndex, setQuestionIndex] = useState(parseInt(params.questionIndex));
+
     const [answer, setAnswer] = useState("");
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`http://localhost:5279/api/events/${params.eventId}/${quizIndex}`);
-                const quiz = await response.json();
-                setQuestion(quiz.questions[params.questionIndex - 1]);
-                setQuestionCount(quiz.questions.length);
-                setQuestionNumber(params.questionIndex);
+                const response = await fetch(`http://localhost:5279/api/events/${params.eventId}/${quizIndex}/${questionIndex - 1}`);
+                const questionData = await response.json();
+                setQuestion(questionData);
             } catch (error) {
                 console.error("Error:", error);
             }
@@ -39,7 +36,7 @@ const QuestionPage = ({ params }) => {
         e.preventDefault();
 
         try {
-            const response = await fetch(`http://localhost:5279/api/events/${params.eventId}/${quizIndex}/${questionIndex}`, {
+            const response = await fetch(`http://localhost:5279/api/events/${params.eventId}/${quizIndex}/${questionIndex - 1}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -60,7 +57,7 @@ const QuestionPage = ({ params }) => {
                     <div className="card-body">
                         <div className="question-count">
                             <span className="card-title mb-4 text-center">
-                                Fråga {questionNumber}/{questionCount ?? "0"}
+                                Fråga {questionIndex}/{question.totalAmountOfQuestions ?? "0"}
                             </span>
                         </div>
                         <h2 className="card-title mb-4 text-center">{question.title}</h2>
