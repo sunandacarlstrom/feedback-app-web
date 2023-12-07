@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import ButtonSubmit from "@/components/Buttons/ButtonSubmit";
 
 const QuestionPage = ({ params }) => {
     const quizIndex = 0;
@@ -73,9 +74,7 @@ const QuestionPage = ({ params }) => {
                                 }}
                                 className="border border-leather p-2 rounded-md w-full focus:outline-none focus:border-pebble"
                             />
-                            <button type="submit" className="btn bg-digital-black text-digital-white hover:bg-leather border-none">
-                                Skicka svar →
-                            </button>
+                            <ButtonSubmit>Skicka svar →</ButtonSubmit>
                         </form>
                     </div>
                 </div>

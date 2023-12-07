@@ -1,12 +1,8 @@
-import Link from "next/link";
-
-const ButtonSubmit = ({ text, link }) => {
+const ButtonSubmit = ({ children }) => {
     return (
-        <>
-            <Link href={link} className="w-fit">
-                <button className="btn bg-digital-black text-digital-white hover:bg-leather border-none">{text}</button>
-            </Link>
-        </>
+        <button type="submit" className="btn bg-digital-black text-digital-white hover:bg-leather border-none w-fit">
+            {children}
+        </button>
     );
 };
 
