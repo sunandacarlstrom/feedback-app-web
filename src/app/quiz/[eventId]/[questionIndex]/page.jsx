@@ -72,7 +72,7 @@ const QuestionPage = ({ params }) => {
                                 onChange={(e) => {
                                     setAnswer(e.target.value);
                                 }}
-                                className="border border-leather p-2 rounded-md w-full focus:outline-none focus:border-pebble"
+                                className="border p-2 rounded-md w-full focus:outline-none focus:border-leather"
                             />
                             <ButtonSubmit>Skicka svar →</ButtonSubmit>
                         </form>
