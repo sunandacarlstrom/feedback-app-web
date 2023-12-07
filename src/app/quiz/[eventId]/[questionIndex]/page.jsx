@@ -24,7 +24,6 @@ const QuestionPage = ({ params }) => {
             }
         };
         fetchData();
-        console.log("fetchData");
     }, []);
 
     useEffect(() => {
