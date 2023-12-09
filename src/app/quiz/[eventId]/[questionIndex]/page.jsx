@@ -75,6 +75,7 @@ const QuestionPage = ({ params }) => {
                             />
                             <ButtonSubmit>Skicka svar →</ButtonSubmit>
                         </form>
+                        
                     </div>
                 </div>
             </div>
