@@ -6,19 +6,9 @@ import ButtonSubmit from "@/components/Buttons/ButtonSubmit";
 
 const Question = ({ params, question, setQuestionIndex }) => {
     const [type, setType] = useState();
-    const [answer, setAnswer] = useState("");
+    const [answer, setAnswer] = useState([]);
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch(`http://localhost:5279/api/events/${params.eventId}/${params.quizIndex}/${questionIndex - 1}`);
-                const questionData = await response.json();
-                setQuestion(questionData);
-            } catch (error) {
-                console.error("Error:", error);
-            }
-        };
-
         const setQuestionType = () => {
             switch (question.type) {
                 case "text":
@@ -28,16 +18,18 @@ const Question = ({ params, question, setQuestionIndex }) => {
                     setType(SingleChoiceQuestion(question, setAnswer));
                     break;
                 case "multiple":
-                    setType(MultipleChoiceQuestion(question, setAnswer));
+                    setType(<MultipleChoiceQuestion question={question} setAnswer={setAnswer} />);
                     break;
                 default:
                     break;
             }
         };
-
-        fetchData();
         setQuestionType();
     }, []);
+
+    useEffect(() => {
+        console.log(answer);
+    }, [answer]);
 
     let submit = async (e) => {
         e.preventDefault();
@@ -48,7 +40,7 @@ const Question = ({ params, question, setQuestionIndex }) => {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify([answer]),
+                body: JSON.stringify(answer),
             });
 
             setQuestionIndex(() => parseInt(params.questionIndex) + 1);

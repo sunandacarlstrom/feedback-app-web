@@ -1,18 +1,22 @@
 import React from "react";
 
 const SingleChoiceQuestion = (question, setAnswer) => {
-    console.log(question);
     return (
-        <>
+        <ul>
             {question.options.map((option) => (
-                <>
-                    <label key={option} for={option}>
-                        {option}
-                    </label>
-                    <input key={option} type="radio" name="value" id={option} />
-                </>
+                <li key={option}>
+                    <label htmlFor={option}>{option}</label>
+                    <input
+                        type="radio"
+                        name="value"
+                        id={option}
+                        onChange={(e) => {
+                            setAnswer([e.target.id]);
+                        }}
+                    />
+                </li>
             ))}
-        </>
+        </ul>
     );
 };
 
