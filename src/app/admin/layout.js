@@ -1,4 +1,4 @@
-import "../globals.css";
+import "@/app/globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 
 const AdminLayout = ({ children }) => {

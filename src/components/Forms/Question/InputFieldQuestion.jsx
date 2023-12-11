@@ -1,11 +1,18 @@
 import React from "react";
 
-const InputFieldQuestion = ({ question }) => {
+const InputFieldQuestion = (setAnswer) => {
+    console.log(setAnswer);
     return (
-        <div>
-            <h3>{question.title}</h3>
-            <input type="text" placeholder="Skriv ditt svar här" />
-        </div>
+        <input
+            type="text"
+            placeholder="Enter your answer"
+            name="answer-input"
+            id="answer-input"
+            onChange={(e) => {
+                setAnswer(e.target.value);
+            }}
+            className="border p-2 rounded-md w-full focus:outline-none focus:border-leather"
+        />
     );
 };
 

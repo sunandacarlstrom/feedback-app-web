@@ -1,19 +1,16 @@
-import React from 'react';
+import React from "react";
 
-const MultipleChoiceQuestion = ({ question }) => {
-  return (
-    <div>
-      <h3>{question.title}</h3>
-      <ul>
-        {question.options.map((option, index) => (
-          <li key={index}>
-            <input type="checkbox" id={`option-${index}`} />
-            <label htmlFor={`option-${index}`}>{option}</label>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+const MultipleChoiceQuestion = (question, setAnswer) => {
+    return (
+        <ul>
+            {question.options.map((option) => (
+                <li key={option}>
+                    <input type="checkbox" id={`option-${option}`} />
+                    <label htmlFor={`option-${option}`}>{option}</label>
+                </li>
+            ))}
+        </ul>
+    );
 };
 
 export default MultipleChoiceQuestion;

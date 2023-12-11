@@ -1,15 +1,18 @@
 import React from "react";
 
-const SingleChoiceQuestion = ({ question }) => {
+const SingleChoiceQuestion = (question, setAnswer) => {
+    console.log(question);
     return (
-        <div>
-            <h3>{question.title}</h3>
-            <ul>
-                {question.options.map((option, index) => (
-                    <li key={index}>{option}</li>
-                ))}
-            </ul>
-        </div>
+        <>
+            {question.options.map((option) => (
+                <>
+                    <label key={option} for={option}>
+                        {option}
+                    </label>
+                    <input key={option} type="radio" name="value" id={option} />
+                </>
+            ))}
+        </>
     );
 };
 
