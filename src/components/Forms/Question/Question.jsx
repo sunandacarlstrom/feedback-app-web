@@ -27,10 +27,6 @@ const Question = ({ params, question, setQuestionIndex }) => {
         setQuestionType();
     }, []);
 
-    useEffect(() => {
-        console.log(answer);
-    }, [answer]);
-
     let submit = async (e) => {
         e.preventDefault();
 
