@@ -1,19 +1,11 @@
-import React from "react";
+import Emoji from "@/components/Icon/Emoji";
 
-const SingleChoiceQuestion = (question, setAnswer) => {
+const SingleChoiceQuestion = ({ question, answer, setAnswer }) => {
     return (
-        <ul>
+        <ul className="flex justify-center items-center gap-8 w-full">
             {question.options.map((option) => (
                 <li key={option}>
-                    <label htmlFor={option}>{option}</label>
-                    <input
-                        type="radio"
-                        name="value"
-                        id={option}
-                        onChange={(e) => {
-                            setAnswer([e.target.id]);
-                        }}
-                    />
+                    <Emoji option={option} answer={answer} setAnswer={setAnswer} />
                 </li>
             ))}
         </ul>
