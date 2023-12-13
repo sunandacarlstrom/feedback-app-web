@@ -8,24 +8,25 @@ const Question = ({ params, question, setQuestionIndex }) => {
     const [type, setType] = useState();
     const [answer, setAnswer] = useState([]);
 
+    const setQuestionType = () => {
+        switch (question.type) {
+            case "text":
+                setType(InputFieldQuestion(setAnswer));
+                break;
+            case "single":
+                setType(<SingleChoiceQuestion question={question} answer={answer} setAnswer={setAnswer} />);
+                break;
+            case "multiple":
+                setType(<MultipleChoiceQuestion question={question} setAnswer={setAnswer} />);
+                break;
+            default:
+                break;
+        }
+    };
+
     useEffect(() => {
-        const setQuestionType = () => {
-            switch (question.type) {
-                case "text":
-                    setType(InputFieldQuestion(setAnswer));
-                    break;
-                case "single":
-                    setType(SingleChoiceQuestion(question, setAnswer));
-                    break;
-                case "multiple":
-                    setType(<MultipleChoiceQuestion question={question} setAnswer={setAnswer} />);
-                    break;
-                default:
-                    break;
-            }
-        };
         setQuestionType();
-    }, []);
+    }, [answer]);
 
     let submit = async (e) => {
         e.preventDefault();
