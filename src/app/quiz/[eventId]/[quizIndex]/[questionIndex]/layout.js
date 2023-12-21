@@ -4,7 +4,7 @@ export const metadata = {
     title: "Quiz Page",
 };
 
-const AdminLayout = ({ children }) => {
+const QuizLayout = ({ children }) => {
     return (
         <>
             <main className="py-10 px-8 bg-leather min-h-full">{children}</main>
@@ -12,4 +12,4 @@ const AdminLayout = ({ children }) => {
     );
 };
 
-export default AdminLayout;
+export default QuizLayout;
