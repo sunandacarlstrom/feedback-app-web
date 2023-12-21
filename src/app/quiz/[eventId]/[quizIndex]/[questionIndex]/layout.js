@@ -1,5 +1,9 @@
 import "@/app/globals.css";
 
+export const metadata = {
+    title: "Quiz Page",
+};
+
 const AdminLayout = ({ children }) => {
     return (
         <>
