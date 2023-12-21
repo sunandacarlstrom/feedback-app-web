@@ -8,6 +8,9 @@ const Button = ({ children, link, size = "", backgroundColor = "digital-black", 
     if (size === "small") {
         btnSize = "btn-sm";
     }
+    if (size === "full") {
+        btnSize = "w-full h-full";
+    }
     return (
         <>
             <Link href={link} className="w-fit">
