@@ -11,7 +11,7 @@ const QuestionPage = ({ params }) => {
     const router = useRouter();
 
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchQuestion = async () => {
             try {
                 const response = await fetch(`http://localhost:5279/api/events/${params.eventId}/${params.quizIndex}/${questionIndex - 1}`);
                 const questionData = await response.json();
@@ -21,13 +21,25 @@ const QuestionPage = ({ params }) => {
                 console.error("Error:", error);
             }
         };
-        fetchData();
+        const fetchSession = async () => {
+            if (!sessionStorage.sessionId) {
+                try {
+                    const response = await fetch(`http://localhost:5279/api/events/startSession`);
+                    const sessionData = await response.json();
+                    sessionStorage.sessionId = sessionData.sessionId;
+                } catch (error) {
+                    console.error("Error:", error);
+                }
+            }
+        };
+
+        fetchSession();
+        fetchQuestion();
     }, []);
 
     useEffect(() => {
         if (questionIndex > totaltAmount) {
             var newURL = `http://localhost:3000/quiz/${params.eventId}/thanks`;
-
         } else {
             var newURL = `http://localhost:3000/quiz/${params.eventId}/${params.quizIndex}/${questionIndex}`;
         }

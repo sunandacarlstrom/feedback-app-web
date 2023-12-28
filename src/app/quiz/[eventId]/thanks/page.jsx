@@ -1,7 +1,13 @@
+"use client";
 import ButtonStart from "@/components/Buttons/ButtonStart";
 import VideoPlayer from "@/components/VideoPlayer/VideoPlayer";
+import { useEffect } from "react";
 
 const ThanksPage = ({ params }) => {
+    useEffect(() => {
+        sessionStorage.removeItem("sessionId");
+    }, []);
+
     return (
         <main className="w-screen h-screen flex flex-col gap-24 justify-center items-center p-4">
             <h1 className="text-digital-white">Thank you!</h1>
