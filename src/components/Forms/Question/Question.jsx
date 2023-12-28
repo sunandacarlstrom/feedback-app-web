@@ -37,7 +37,7 @@ const Question = ({ params, question, setQuestionIndex }) => {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ sessionId: sessionStorage.sessionId, answer }),
+                body: JSON.stringify({ session: sessionStorage.sessionId, result: answer }),
             });
 
             setQuestionIndex(() => parseInt(params.questionIndex) + 1);
