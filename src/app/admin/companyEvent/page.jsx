@@ -13,8 +13,6 @@ const CompanyEventPage = () => {
             const data = await authWithBearer("http://localhost:5279/api/companies/");
             setCompanies(data);
             setSelectedCompany(data[0]);
-            console.log("hej");
-            console.log(data);
         };
 
         fetchData();
@@ -23,10 +21,6 @@ const CompanyEventPage = () => {
     const handleSelectedCompany = (company) => {
         setSelectedCompany(company);
     };
-
-    useEffect(() => {
-        console.log(`companies ${companies}`);
-    }, [companies]);
 
     return (
         <>
