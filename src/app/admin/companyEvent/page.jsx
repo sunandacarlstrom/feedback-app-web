@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import CompanyDropdown from "@/components/Dropdown/CompanyDropdown";
 import EventList from "@/components/EventList/EventList";
+import { authWithBearer } from "@/utils";
 
 const CompanyEventPage = () => {
     const [companies, setCompanies] = useState([]);
@@ -9,15 +10,11 @@ const CompanyEventPage = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            try {
-                const response = await fetch("http://localhost:5279/api/companies/");
-                const data = await response.json();
-                setCompanies(data);
-                //TODO: Välj företag som favorit vid registrering av användarkonto för att det ska sättas som standard istället
-                setSelectedCompany(data[0]);
-            } catch (error) {
-                console.log(error);
-            }
+            const data = await authWithBearer("http://localhost:5279/api/companies/");
+            setCompanies(data);
+            setSelectedCompany(data[0]);
+            console.log("hej");
+            console.log(data);
         };
 
         fetchData();
@@ -27,10 +24,22 @@ const CompanyEventPage = () => {
         setSelectedCompany(company);
     };
 
+    useEffect(() => {
+        console.log(`companies ${companies}`);
+    }, [companies]);
+
     return (
         <>
             <div className="flex justify-center">
-                <CompanyDropdown onSelect={handleSelectedCompany} companies={companies} selectedCompany={selectedCompany} />
+                {companies ? (
+                    <CompanyDropdown
+                        onSelect={handleSelectedCompany}
+                        companies={companies}
+                        selectedCompany={selectedCompany}
+                    />
+                ) : (
+                    <p>Loading</p>
+                )}
             </div>
             {selectedCompany ? <EventList company={selectedCompany} /> : <p>Loading...</p>}
         </>

@@ -3,9 +3,11 @@ import ButtonLogin from "@/components/Buttons/ButtonLogin";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/ReactToastify.css";
+import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
     const [form, setForm] = useState({ email: "", password: "" });
+    const router = useRouter();
 
     const handleInput = (e) => {
         setForm((prevForm) => {
@@ -15,13 +17,28 @@ const LoginForm = () => {
         });
     };
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-        if (form.email === "" || form.password === "") {
+        const { email, password } = form;
+
+        if (email === "" || password === "") {
             toast.error("Please fill the login form!", { theme: "colored" });
             return;
         }
-        console.log("yest");
+
+        const body = JSON.stringify({ email, password });
+        console.log(body);
+
+        const response = await fetch(`http://localhost:5279/api/auth/login`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: body,
+        });
+
+        const { token } = await response.json();
+        sessionStorage.token = token;
+
+        router.push("http://localhost:3000/admin/companyEvent");
     };
 
     useEffect(() => {
