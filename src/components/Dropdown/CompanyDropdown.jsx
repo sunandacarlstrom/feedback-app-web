@@ -11,7 +11,9 @@ const CompanyDropdown = ({ onSelect, companies, selectedCompany }) => {
     return (
         <>
             <details className="dropdown dropdown-bottom" ref={dropdownRef}>
-                <summary className="mb-1 btn">{selectedCompany ? `${selectedCompany.full_name} ▾`: "Choose Company"}</summary>
+                <summary className="mb-1 btn">
+                    {selectedCompany ? `${selectedCompany.full_name} ▾` : "Choose Company"}
+                </summary>
                 <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-lg w-full">
                     {companies?.map((company) => (
                         <li key={company.id}>
