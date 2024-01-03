@@ -3,6 +3,7 @@ import InputFieldQuestion from "./InputFieldQuestion";
 import SingleChoiceQuestion from "./SingleChoiceQuestion";
 import MultipleChoiceQuestion from "./MultipleChoiceQuestion";
 import ButtonSubmit from "@/components/Buttons/ButtonSubmit";
+import { authPostWithBearer } from "@/utils/auth";
 
 const Question = ({ params, question, setQuestionIndex }) => {
     const [type, setType] = useState();
@@ -14,7 +15,13 @@ const Question = ({ params, question, setQuestionIndex }) => {
                 setType(InputFieldQuestion(setAnswer));
                 break;
             case "single":
-                setType(<SingleChoiceQuestion question={question} answer={answer} setAnswer={setAnswer} />);
+                setType(
+                    <SingleChoiceQuestion
+                        question={question}
+                        answer={answer}
+                        setAnswer={setAnswer}
+                    />
+                );
                 break;
             case "multiple":
                 setType(<MultipleChoiceQuestion question={question} setAnswer={setAnswer} />);
@@ -30,20 +37,14 @@ const Question = ({ params, question, setQuestionIndex }) => {
 
     let submit = async (e) => {
         e.preventDefault();
+        
+        const url = `http://localhost:5279/api/events/${params.eventId}/${params.quizIndex}/${
+            params.questionIndex - 1
+        }`;
+        const body = { session: sessionStorage.sessionId, result: answer };
 
-        try {
-            const response = await fetch(`http://localhost:5279/api/events/${params.eventId}/${params.quizIndex}/${params.questionIndex - 1}`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ session: sessionStorage.sessionId, result: answer }),
-            });
-
-            setQuestionIndex(() => parseInt(params.questionIndex) + 1);
-        } catch (error) {
-            console.error("Error submitting answer:", error);
-        }
+        await authPostWithBearer(url, body);
+        setQuestionIndex(() => parseInt(params.questionIndex) + 1);
     };
 
     return (
@@ -55,7 +56,10 @@ const Question = ({ params, question, setQuestionIndex }) => {
                             Fråga {params.questionIndex}/{question.totalAmountOfQuestions ?? "0"}
                         </span>
                     </div>
-                    <form onSubmit={submit} className="flex flex-col gap-4 justify-center items-end">
+                    <form
+                        onSubmit={submit}
+                        className="flex flex-col gap-4 justify-center items-end"
+                    >
                         <h2 className="card-title mb-4 text-center">{question.title}</h2>
                         {type ?? <p>Loading</p>}
                         <ButtonSubmit>Skicka svar →</ButtonSubmit>

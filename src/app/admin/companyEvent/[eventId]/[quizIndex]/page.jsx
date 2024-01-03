@@ -1,6 +1,6 @@
 "use client";
 import Button from "@/components/Buttons/Button";
-import { authWithBearer } from "@/utils";
+import { authGetWithBearer } from "@/utils/auth";
 import { useState, useEffect } from "react";
 
 const EditPage = ({ params }) => {
@@ -10,7 +10,7 @@ const EditPage = ({ params }) => {
     // UseEffects
     useEffect(() => {
         const fetchData = async () => {
-            const data = await authWithBearer(
+            const data = await authGetWithBearer(
                 `http://localhost:5279/api/events/${params.eventId}/${params.quizIndex}`
             );
             setQuiz(data);

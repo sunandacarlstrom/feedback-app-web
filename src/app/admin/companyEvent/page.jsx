@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import CompanyDropdown from "@/components/Dropdown/CompanyDropdown";
 import EventList from "@/components/EventList/EventList";
-import { authWithBearer } from "@/utils";
+import { authGetWithBearer } from "@/utils/auth";
 
 const CompanyEventPage = () => {
     const [companies, setCompanies] = useState([]);
@@ -10,7 +10,7 @@ const CompanyEventPage = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const data = await authWithBearer("http://localhost:5279/api/companies/");
+            const data = await authGetWithBearer("http://localhost:5279/api/companies/");
             setCompanies(data);
             setSelectedCompany(data[0]);
         };

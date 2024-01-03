@@ -1,4 +1,3 @@
-import  authWithBearer  from "./authwithbearer";
+import * as Auth from "./auth";
 
-
-export {authWithBearer}
+export { Auth };

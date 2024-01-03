@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Button from "../Buttons/Button";
-import { authWithBearer } from "@/utils";
+import { authGetWithBearer } from "@/utils/auth";
 
 const EventList = ({ company, children }) => {
     const [events, setEvents] = useState([]);
@@ -9,7 +9,7 @@ const EventList = ({ company, children }) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const data = await authWithBearer(
+            const data = await authGetWithBearer(
                 `http://localhost:5279/api/events/getcompanyevents/${selectedCompany.id}`
             );
             setEvents(data);
@@ -21,7 +21,7 @@ const EventList = ({ company, children }) => {
     useEffect(() => {
         setSelectedCompany(() => company);
     });
-    
+
     return (
         <div className="w-full flex flex-col gap-2 justify-center items-center py-8">
             <h2>{children}</h2>
