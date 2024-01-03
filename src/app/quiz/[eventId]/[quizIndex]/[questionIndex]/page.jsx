@@ -28,12 +28,11 @@ const QuestionPage = ({ params }) => {
                     `http://localhost:5279/api/events/startSession`
                 );
                 sessionStorage.sessionId = sessionData.sessionId;
-                console.log("testar session");
             }
+            fetchQuestion();
         };
 
         fetchSession();
-        fetchQuestion();
     }, []);
 
     useEffect(() => {
