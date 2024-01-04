@@ -49,7 +49,7 @@ const LoginForm = () => {
         <>
             <div className="card bg-digital-white shadow-xl p-4">
                 <div className="card-body">
-                    <h2 className="card-title mb-4 text-center">Log in as Admin</h2>
+                    <h2 className="card-title mb-4 text-center">Log in as Admin/User</h2>
                     <form id="login-form" onSubmit={handleLogin}>
                         <div className="flex flex-col gap-4 justify-center items-center">
                             <input

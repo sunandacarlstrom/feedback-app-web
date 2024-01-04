@@ -32,10 +32,14 @@ const CompanyEventPage = () => {
                         selectedCompany={selectedCompany}
                     />
                 ) : (
-                    <p>Loading</p>
+                    <span className="loading loading-spinner loading-md"></span>
                 )}
             </div>
-            {selectedCompany ? <EventList company={selectedCompany} /> : <p>Loading...</p>}
+            {selectedCompany ? (
+                <EventList company={selectedCompany} />
+            ) : (
+                <span className="loading loading-spinner loading-md"></span>
+            )}
         </>
     );
 };
