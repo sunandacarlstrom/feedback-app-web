@@ -83,7 +83,13 @@ _Put production instructions here_
 
  **Staging**
 
-_Put staging instructions here_
+To deploy to the staging environment add the following git remote to your project
+
+git remote add develop root@XXX:/deploy/feedback-frontend/develop.git
+
+When that is done run the following command to deploy your code:
+
+git push develop main
 
  **Production**
 
