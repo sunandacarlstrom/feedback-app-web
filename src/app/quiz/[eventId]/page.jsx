@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import VideoPlayer from "@/components/VideoPlayer/VideoPlayer";
 import ButtonStart from "@/components/Buttons/ButtonStart";
 import { authGetWithBearer } from "@/utils/auth";
+import PrivacyPolicy from "@/components/PrivacyPolicy/PrivacyPolicy";
 
 const QuizPage = ({ params }) => {
     useEffect(() => {
@@ -23,6 +24,7 @@ const QuizPage = ({ params }) => {
                     Please, give us some feedback!
                 </ButtonStart>
             </div>
+            <PrivacyPolicy />
             <VideoPlayer />
         </main>
     );
