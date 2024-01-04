@@ -27,7 +27,6 @@ const LoginForm = () => {
         }
 
         const body = JSON.stringify({ email, password });
-        console.log(body);
 
         const response = await fetch(`http://localhost:5279/api/auth/login`, {
             method: "POST",
@@ -40,10 +39,6 @@ const LoginForm = () => {
 
         router.push("http://localhost:3000/admin/companyEvent");
     };
-
-    useEffect(() => {
-        console.log(form);
-    }, [form]);
 
     return (
         <>
