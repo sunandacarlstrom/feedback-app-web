@@ -55,7 +55,7 @@ const QuestionPage = ({ params }) => {
                         setQuestionIndex={setQuestionIndex}
                     />
                 ) : (
-                    <p>Loading...</p>
+                    <span className="loading loading-spinner loading-md"></span>
                 )}
             </div>
         </>

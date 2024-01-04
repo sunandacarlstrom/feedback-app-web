@@ -37,7 +37,7 @@ const Question = ({ params, question, setQuestionIndex }) => {
 
     let submit = async (e) => {
         e.preventDefault();
-        
+
         const url = `http://localhost:5279/api/events/${params.eventId}/${params.quizIndex}/${
             params.questionIndex - 1
         }`;
@@ -61,7 +61,7 @@ const Question = ({ params, question, setQuestionIndex }) => {
                         className="flex flex-col gap-4 justify-center items-end"
                     >
                         <h2 className="card-title mb-4 text-center">{question.title}</h2>
-                        {type ?? <p>Loading</p>}
+                        {type ?? <span className="loading loading-spinner loading-md"></span>}
                         <ButtonSubmit>Skicka svar →</ButtonSubmit>
                     </form>
                 </div>
