@@ -8,7 +8,7 @@ const authGetWithBearer = async (url) => {
     } catch (error) {
         const errorMessage = `Fel vid förfrågan. Felmedelande: ${error}`;
         console.error(errorMessage);
-        return errorMessage;
+        return null;
     }
 };
 

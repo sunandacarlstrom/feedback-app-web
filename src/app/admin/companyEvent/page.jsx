@@ -8,15 +8,27 @@ const CompanyEventPage = () => {
     const [companies, setCompanies] = useState([]);
     const [selectedCompany, setSelectedCompany] = useState();
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const data = await authGetWithBearer("http://localhost:5279/api/companies/");
+    const fetchData = async () => {
+        const data = await authGetWithBearer("http://localhost:5279/api/companies/");
+        if (data) {
             setCompanies(data);
             setSelectedCompany(data[0]);
-        };
+        }
+        else {
+            setCompanies([]); 
+            setSelectedCompany({})
+        }
+    };
 
+    useEffect(() => {
         fetchData();
     }, []);
+
+    useEffect(() => {
+        if (companies == [] || selectedCompany == {}) {
+            fetchData();
+        }
+    });
 
     const handleSelectedCompany = (company) => {
         setSelectedCompany(company);
