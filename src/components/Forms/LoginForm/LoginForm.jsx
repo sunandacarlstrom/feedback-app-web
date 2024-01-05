@@ -37,7 +37,7 @@ const LoginForm = () => {
         const { token } = await response.json();
         sessionStorage.token = token;
 
-        router.push("http://localhost:3000/admin/companyEvent");
+        router.push("http://feedback.frontend.kitjkpg.se/admin/companyEvent");
     };
 
     useEffect(() => {

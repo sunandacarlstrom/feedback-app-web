@@ -37,9 +37,9 @@ const QuestionPage = ({ params }) => {
 
     useEffect(() => {
         if (questionIndex > totaltAmount) {
-            var newURL = `http://localhost:3000/quiz/${params.eventId}/thanks`;
+            var newURL = `http://feedback.frontend.kitjkpg.se/quiz/${params.eventId}/thanks`;
         } else {
-            var newURL = `http://localhost:3000/quiz/${params.eventId}/${params.quizIndex}/${questionIndex}`;
+            var newURL = `http://feedback.frontend.kitjkpg.se/quiz/${params.eventId}/${params.quizIndex}/${questionIndex}`;
         }
 
         router.push(newURL);

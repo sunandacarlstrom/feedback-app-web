@@ -19,7 +19,7 @@ const AuthProvider = ({ children }) => {
 
             const { isUser } = await response.json();
             if (!isUser) {
-                router.push("http://localhost:3000");
+                router.push("http://feedback.frontend.kitjkpg.se");
             }
         };
         getUser();
@@ -28,7 +28,7 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const sessionToken = sessionStorage.getItem("token");
         if (!sessionToken) {
-            router.push("http://localhost:3000");
+            router.push("http://feedback.frontend.kitjkpg.se");
         }
         setToken(sessionToken);
     }, [router]);
