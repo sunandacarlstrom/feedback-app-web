@@ -40,6 +40,10 @@ const LoginForm = () => {
         router.push("http://localhost:3000/admin/companyEvent");
     };
 
+    useEffect(() => {
+        sessionStorage.removeItem("token"); 
+    }, []); 
+
     return (
         <>
             <div className="card bg-digital-white shadow-xl p-4">
