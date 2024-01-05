@@ -10,7 +10,7 @@ const QuizPage = ({ params }) => {
         sessionStorage.removeItem("sessionId");
 
         const getGuestJWT = async () => {
-            const guest = await authGetWithBearer(`http://localhost:5279/api/auth/guest`);
+            const guest = await authGetWithBearer(`http://feedback.backend.kitjkpg.se/api/auth/guest`);
             sessionStorage.token = guest.token;
         };
 

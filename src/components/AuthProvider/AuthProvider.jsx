@@ -11,7 +11,7 @@ const AuthProvider = ({ children }) => {
             if (!token) {
                 return;
             }
-            const response = await fetch(`http://localhost:5279/api/auth`, {
+            const response = await fetch(`http://feedback.backend.kitjkpg.se/api/auth`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ token }),

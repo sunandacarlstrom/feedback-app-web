@@ -10,7 +10,7 @@ const EventList = ({ company, children }) => {
     useEffect(() => {
         const fetchData = async () => {
             const data = await authGetWithBearer(
-                `http://localhost:5279/api/events/getcompanyevents/${selectedCompany.id}`
+                `http://feedback.backend.kitjkpg.se/api/events/getcompanyevents/${selectedCompany.id}`
             );
             setEvents(data);
         };

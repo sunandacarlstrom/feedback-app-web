@@ -9,7 +9,7 @@ const CompanyEventPage = () => {
     const [selectedCompany, setSelectedCompany] = useState();
 
     const fetchData = async () => {
-        const data = await authGetWithBearer("http://localhost:5279/api/companies/");
+        const data = await authGetWithBearer("http://feedback.backend.kitjkpg.se/api/companies/");
         if (data) {
             setCompanies(data);
             setSelectedCompany(data[0]);

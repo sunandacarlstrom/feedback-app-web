@@ -28,7 +28,7 @@ const LoginForm = () => {
 
         const body = JSON.stringify({ email, password });
 
-        const response = await fetch(`http://localhost:5279/api/auth/login`, {
+        const response = await fetch(`http://feedback.backend.kitjkpg.se/api/auth/login`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: body,

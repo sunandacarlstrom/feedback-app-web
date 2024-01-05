@@ -38,7 +38,7 @@ const Question = ({ params, question, setQuestionIndex }) => {
     let submit = async (e) => {
         e.preventDefault();
 
-        const url = `http://localhost:5279/api/events/${params.eventId}/${params.quizIndex}/${
+        const url = `http://feedback.backend.kitjkpg.se/api/events/${params.eventId}/${params.quizIndex}/${
             params.questionIndex - 1
         }`;
         const body = { session: sessionStorage.sessionId, result: answer };

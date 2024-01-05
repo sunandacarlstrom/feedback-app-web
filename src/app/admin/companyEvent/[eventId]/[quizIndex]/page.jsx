@@ -11,7 +11,7 @@ const EditPage = ({ params }) => {
     useEffect(() => {
         const fetchData = async () => {
             const data = await authGetWithBearer(
-                `http://localhost:5279/api/events/${params.eventId}/${params.quizIndex}`
+                `http://feedback.backend.kitjkpg.se/api/events/${params.eventId}/${params.quizIndex}`
             );
             setQuiz(data);
         };

@@ -14,7 +14,7 @@ const QuestionPage = ({ params }) => {
     useEffect(() => {
         const fetchQuestion = async () => {
             const questionData = await authGetWithBearer(
-                `http://localhost:5279/api/events/${params.eventId}/${params.quizIndex}/${
+                `http://feedback.backend.kitjkpg.se/api/events/${params.eventId}/${params.quizIndex}/${
                     questionIndex - 1
                 }`
             );
@@ -25,7 +25,7 @@ const QuestionPage = ({ params }) => {
         const fetchSession = async () => {
             if (!sessionStorage.sessionId) {
                 const sessionData = await authGetWithBearer(
-                    `http://localhost:5279/api/events/startSession`
+                    `http://feedback.backend.kitjkpg.se/api/events/startSession`
                 );
                 sessionStorage.sessionId = sessionData.sessionId;
             }
