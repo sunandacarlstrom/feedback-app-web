@@ -11,7 +11,10 @@ const AuthProvider = ({ children }) => {
             if (!token) {
                 return;
             }
-            const response = await fetch(`http://feedback.backend.kitjkpg.se/api/auth`, {
+
+            const url = `${process.env.NEXT_PUBLIC_HOST_BACKEND}/api/auth`;
+
+            const response = await fetch(url, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ token }),
@@ -19,7 +22,7 @@ const AuthProvider = ({ children }) => {
 
             const { isUser } = await response.json();
             if (!isUser) {
-                router.push("http://feedback.frontend.kitjkpg.se");
+                router.push(`${process.env.NEXT_PUBLIC_HOST_FRONTEND}`);
             }
         };
         getUser();
@@ -28,7 +31,7 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const sessionToken = sessionStorage.getItem("token");
         if (!sessionToken) {
-            router.push("http://feedback.frontend.kitjkpg.se");
+            router.push();
         }
         setToken(sessionToken);
     }, [router]);

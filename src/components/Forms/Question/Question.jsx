@@ -38,9 +38,9 @@ const Question = ({ params, question, setQuestionIndex }) => {
     let submit = async (e) => {
         e.preventDefault();
 
-        const url = `http://feedback.backend.kitjkpg.se/api/events/${params.eventId}/${params.quizIndex}/${
-            params.questionIndex - 1
-        }`;
+        const url = `${process.env.NEXT_PUBLIC_HOST_BACKEND}/api/events/${params.eventId}/${
+            params.quizIndex
+        }/${params.questionIndex - 1}`;
         const body = { session: sessionStorage.sessionId, result: answer };
 
         await authPostWithBearer(url, body);

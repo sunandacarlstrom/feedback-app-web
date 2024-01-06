@@ -14,9 +14,9 @@ const QuestionPage = ({ params }) => {
     useEffect(() => {
         const fetchQuestion = async () => {
             const questionData = await authGetWithBearer(
-                `http://feedback.backend.kitjkpg.se/api/events/${params.eventId}/${params.quizIndex}/${
-                    questionIndex - 1
-                }`
+                `${process.env.NEXT_PUBLIC_HOST_BACKEND}/api/events/${params.eventId}/${
+                    params.quizIndex
+                }/${questionIndex - 1}`
             );
             setQuestion(questionData);
             setTotalAmount(questionData.totalAmountOfQuestions);
@@ -25,7 +25,7 @@ const QuestionPage = ({ params }) => {
         const fetchSession = async () => {
             if (!sessionStorage.sessionId) {
                 const sessionData = await authGetWithBearer(
-                    `http://feedback.backend.kitjkpg.se/api/events/startSession`
+                    `${process.env.NEXT_PUBLIC_HOST_BACKEND}/api/events/startSession`
                 );
                 sessionStorage.sessionId = sessionData.sessionId;
             }
@@ -37,9 +37,9 @@ const QuestionPage = ({ params }) => {
 
     useEffect(() => {
         if (questionIndex > totaltAmount) {
-            var newURL = `http://feedback.frontend.kitjkpg.se/quiz/${params.eventId}/thanks`;
+            var newURL = `${process.env.NEXT_PUBLIC_HOST_FRONTEND}/quiz/${params.eventId}/thanks`;
         } else {
-            var newURL = `http://feedback.frontend.kitjkpg.se/quiz/${params.eventId}/${params.quizIndex}/${questionIndex}`;
+            var newURL = `${process.env.NEXT_PUBLIC_HOST_FRONTEND}/quiz/${params.eventId}/${params.quizIndex}/${questionIndex}`;
         }
 
         router.push(newURL);

@@ -27,8 +27,9 @@ const LoginForm = () => {
         }
 
         const body = JSON.stringify({ email, password });
+        const url = `${process.env.NEXT_PUBLIC_HOST_BACKEND}/api/auth/login`;
 
-        const response = await fetch(`http://feedback.backend.kitjkpg.se/api/auth/login`, {
+        const response = await fetch(url, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: body,
@@ -37,12 +38,12 @@ const LoginForm = () => {
         const { token } = await response.json();
         sessionStorage.token = token;
 
-        router.push("http://feedback.frontend.kitjkpg.se/admin/companyEvent");
+        router.push(`${process.env.NEXT_PUBLIC_HOST_FRONTEND}/admin/companyEvent`);
     };
 
     useEffect(() => {
-        sessionStorage.removeItem("token"); 
-    }, []); 
+        sessionStorage.removeItem("token");
+    }, []);
 
     return (
         <>
