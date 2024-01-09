@@ -52,7 +52,7 @@ const Question = ({ params, question, setQuestionIndex }) => {
             <div className="card bg-melon shadow-xl p-4 w-fit">
                 <div className="card-body">
                     <div className="question-count">
-                        <span className="card-title mb-4 text-center">
+                        <span className="card-title mb-2 text-center text-sm">
                             Fråga {params.questionIndex}/{question.totalAmountOfQuestions ?? "0"}
                         </span>
                     </div>
