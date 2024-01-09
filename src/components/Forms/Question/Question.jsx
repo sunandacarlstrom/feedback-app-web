@@ -58,11 +58,13 @@ const Question = ({ params, question, setQuestionIndex }) => {
                     </div>
                     <form
                         onSubmit={submit}
-                        className="flex flex-col gap-4 justify-center items-end"
+                        className="flex flex-col gap-4 justify-center items-center"
                     >
-                        <h2 className="card-title mb-4 text-center">{question.title}</h2>
+                        <h2 className="card-title text-center">{question.title}</h2>
                         {type ?? <span className="loading loading-spinner loading-md"></span>}
-                        <ButtonSubmit>Skicka svar →</ButtonSubmit>
+                        <div className="flex w-full justify-end">
+                            <ButtonSubmit>Skicka svar →</ButtonSubmit>
+                        </div>
                     </form>
                 </div>
             </div>

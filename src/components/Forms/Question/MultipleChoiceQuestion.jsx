@@ -8,25 +8,31 @@ const MultipleChoiceQuestion = ({ question, setAnswer }) => {
     }, [selectedOptions]);
 
     return (
-        <ul>
+        <div className="form-control">
             {question.options.map((option) => (
-                <li key={option}>
-                    <label htmlFor={option}>{option}</label>
+                <label key={option} className="label justify-start gap-4 cursor-pointer">
+                    
                     <input
                         type="checkbox"
+                        className="checkbox border-2 border-digital-black checked:border-digital-black [--chkbg:theme(colors.digital-black)] [--chkfg:theme(colors.digital-white)]"
                         id={option}
                         onChange={(e) => {
                             if (selectedOptions.includes(e.target.id)) {
                                 const index = selectedOptions.indexOf(e.target.id);
-                                setSelectedOptions(selectedOptions.slice(0, index).concat(selectedOptions.slice(index + 1)));
+                                setSelectedOptions(
+                                    selectedOptions
+                                        .slice(0, index)
+                                        .concat(selectedOptions.slice(index + 1))
+                                );
                             } else {
                                 setSelectedOptions(selectedOptions.concat(e.target.id));
                             }
                         }}
                     />
-                </li>
+                    <span className="label-text text-lg">{option}</span>
+                </label>
             ))}
-        </ul>
+        </div>
     );
 };
 
