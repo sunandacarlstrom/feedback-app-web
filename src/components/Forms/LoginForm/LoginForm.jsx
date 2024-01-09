@@ -59,7 +59,7 @@ const LoginForm = () => {
                                 placeholder="Email"
                                 name="email"
                                 id="email"
-                                className="border p-2 rounded-md w-full focus:outline-none focus:border-pear"
+                                className="border p-2 rounded-md w-full focus:outline-forest border-pear"
                             />
                             <input
                                 type="password"
@@ -68,7 +68,7 @@ const LoginForm = () => {
                                 placeholder="Password"
                                 name="password"
                                 id="password"
-                                className="border p-2 rounded-md w-full focus:outline-none focus:border-pear"
+                                className="border p-2 rounded-md w-full focus:outline-forest border-pear"
                             />
                             <ButtonLogin>Log in</ButtonLogin>
                         </div>

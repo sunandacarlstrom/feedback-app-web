@@ -4,13 +4,13 @@ const InputFieldQuestion = (setAnswer) => {
     return (
         <input
             type="text"
-            placeholder="Enter your answer"
+            placeholder="Skriv ditt svar här"
             name="answer-input"
             id="answer-input"
             onChange={(e) => {
                 setAnswer([e.target.value]);
             }}
-            className="border p-2 rounded-md w-full focus:outline-none focus:border-leather"
+            className="border p-2 rounded-md w-full focus:outline-leather border-digital-black"
         />
     );
 };
