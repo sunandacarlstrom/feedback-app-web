@@ -58,7 +58,7 @@ const Question = ({ params, question, setQuestionIndex }) => {
                     </div>
                     <form
                         onSubmit={submit}
-                        className="flex flex-col gap-4 justify-center items-center"
+                        className="flex flex-col gap-8 justify-center items-center"
                     >
                         <h2 className="card-title text-center">{question.title}</h2>
                         {type ?? <span className="loading loading-spinner loading-md"></span>}
