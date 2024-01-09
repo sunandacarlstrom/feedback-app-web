@@ -52,17 +52,19 @@ const Question = ({ params, question, setQuestionIndex }) => {
             <div className="card bg-melon shadow-xl p-4 w-fit">
                 <div className="card-body">
                     <div className="question-count">
-                        <span className="card-title mb-4 text-center">
+                        <span className="card-title mb-2 text-center text-sm">
                             Fråga {params.questionIndex}/{question.totalAmountOfQuestions ?? "0"}
                         </span>
                     </div>
                     <form
                         onSubmit={submit}
-                        className="flex flex-col gap-4 justify-center items-end"
+                        className="flex flex-col gap-8 justify-center items-center"
                     >
-                        <h2 className="card-title mb-4 text-center">{question.title}</h2>
+                        <h2 className="card-title text-center">{question.title}</h2>
                         {type ?? <span className="loading loading-spinner loading-md"></span>}
-                        <ButtonSubmit>Skicka svar →</ButtonSubmit>
+                        <div className="flex w-full justify-end">
+                            <ButtonSubmit>Skicka svar →</ButtonSubmit>
+                        </div>
                     </form>
                 </div>
             </div>

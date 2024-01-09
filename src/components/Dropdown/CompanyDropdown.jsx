@@ -11,7 +11,7 @@ const CompanyDropdown = ({ onSelect, companies, selectedCompany }) => {
     return (
         <>
             <details className="dropdown dropdown-bottom" ref={dropdownRef}>
-                <summary className="mb-1 btn">
+                <summary className="mb-1 btn bg-digital-white border-none">
                     {selectedCompany ? `${selectedCompany.full_name} ▾` : "Choose Company"}
                 </summary>
                 <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-lg w-full">

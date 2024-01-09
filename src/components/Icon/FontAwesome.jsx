@@ -1,7 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFontAwesome, faFaceAngry, faFaceFrownOpen, faFaceMeh, faFaceSmile, faFaceGrinHearts } from "@fortawesome/free-solid-svg-icons";
+import {
+    faFontAwesome,
+    faFaceAngry,
+    faFaceFrownOpen,
+    faFaceMeh,
+    faFaceSmile,
+    faFaceGrinHearts,
+} from "@fortawesome/free-solid-svg-icons";
 
-const FontAwesome = ({ icon, size, color }) => {
+const FontAwesome = ({ icon, size, color, bounce }) => {
     if (size === undefined) {
         size = "2x";
     }
@@ -31,7 +38,7 @@ const FontAwesome = ({ icon, size, color }) => {
 
     return (
         <>
-            <FontAwesomeIcon icon={faIcon} size={size} color={color} />
+            <FontAwesomeIcon icon={faIcon} size={size} color={color} bounce={bounce} />
         </>
     );
 };

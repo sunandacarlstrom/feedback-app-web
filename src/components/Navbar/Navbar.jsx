@@ -9,7 +9,7 @@ const Navbar = () => {
     return (
         <nav className="w-full h-18 shadow-xl bg-digital-white">
             <div className="flex justify-between items-center gap-1 h-full w-full px-12 py-4 2xl:px-16">
-                <Link href="/">
+                <Link href="/admin/companyEvent">
                     <Image src={Logo} alt="Logo" height="35" className="cursor-pointer" priority />
                 </Link>
                 <div>
