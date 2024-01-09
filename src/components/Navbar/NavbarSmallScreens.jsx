@@ -18,19 +18,14 @@ const NavbarSmallScreens = () => {
             </div>
             <div className={menuOpen ? "fixed right-0 top-0 h-full w-[45%] bg-[#5c606243] z-0 ease-in duration-500" : "fixed right-[-100%] top-0 h-full w-[45%] z-0 ease-in duration-500"}>
                 <ul className="flex flex-col w-full items-end justify-start px-8 h-full py-24 gap-4">
-                    <Link href="/about">
+                    <Link href="https://www.knowit.se/om-knowit/">
                         <li onClick={() => setMenuOpen(false)} className="text-digital-white text-l border-b border-transparent hover:border-pop text-l transition-all duration-300">
                             About
                         </li>
                     </Link>
-                    <Link href="/contact">
+                    <Link href="https://www.knowit.se/kontakt/">
                         <li onClick={() => setMenuOpen(false)} className="text-digital-white text-l border-b border-transparent hover:border-pop text-l transition-all duration-300">
                             Contact
-                        </li>
-                    </Link>
-                    <Link href="/admin">
-                        <li onClick={() => setMenuOpen(false)} className="text-digital-white text-l border-b border-transparent hover:border-pop text-l transition-all duration-300">
-                            Admin
                         </li>
                     </Link>
                 </ul>
